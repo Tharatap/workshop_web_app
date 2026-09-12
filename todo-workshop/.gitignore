@@ -1,0 +1,57 @@
+## .NET build output
+bin/
+obj/
+out/
+
+## Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider / JetBrains
+.idea/
+*.sln.iml
+
+## VS Code
+.vscode/
+
+## NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+
+## Test results
+[Tt]est[Rr]esult*/
+*.trx
+*.coverage
+*.coveragexml
+
+## Publish / deployment
+*.pubxml
+*.pubxml.user
+*.publishsettings
+PublishProfiles/
+
+## Logs
+*.log
+logs/
+
+## User-specific / secret configuration
+appsettings.*.local.json
+secrets.json
+*.env
+.env
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Database files
+*.db
+*.sqlite
+*.sqlite3
