@@ -1,3 +1,4 @@
+using TodoApi.Dtos;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,11 +15,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/",() => "Hello ToDo API");
+var todos = new List<TodoGetDto>
+{
+    new(1,"Tharatap",true),
+    new(2,"Thanakorn",true),
+    new(3,"pun",false),
+};
+app.MapGet("/api/todos",() => Results.Ok(todos));
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
