@@ -134,8 +134,9 @@ var todoGroup = app.MapGroup("/api/todos").WithTags("Todos");
         new TodoGetDto(t.Id,t.Title,t.IsCompleted));
 
         return todos.Count == 0 ? Results.NoContent() :  Results.Ok(todoGetDtos);
-    });
-
+    })
+    .RequireAuthorization();
+    
     todoGroup.MapPost("/",async(AppDbContext db,TodoPostDto dto) =>
     {
         var lastTodo = await db.Todos.OrderByDescending(t => t.Id).FirstOrDefaultAsync();
@@ -152,10 +153,12 @@ var todoGroup = app.MapGroup("/api/todos").WithTags("Todos");
 
         var todoGetDto = new TodoGetDto(todo.Id, todo.Title, todo.IsCompleted);
         return Results.Created($"/{todo.Id}",todo);
-    });
+    })
+    .RequireAuthorization();
 #endregion
 
 #region Authentication Endpoints
+
     app.MapPost("/api/login",(LoginDto dto, IConfiguration configuration) =>
     {
         if (dto.Username != "admin" || dto.Password != "Password") return Results.Unauthorized();
