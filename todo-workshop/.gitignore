@@ -42,7 +42,7 @@ PublishProfiles/
 logs/
 
 ## User-specific / secret configuration
-appsettings.*.local.json
+
 secrets.json
 *.env
 .env
@@ -52,6 +52,6 @@ secrets.json
 Thumbs.db
 
 ## Database files
-*.db
+
 *.sqlite
 *.sqlite3
